@@ -116,6 +116,3 @@ python3 scripts/run_print.py \
 
 实际打印请统一使用 `scripts/run_print.py`，不要直接调用底层渲染或预检脚本。
 
-## 许可证与权利
-
-代码、脚本、验证逻辑和工作流配置遵循 `LICENSE`；知识数据、命题规则和项目文档遵循 `DATA_LICENSE.md`。教材及其他第三方资料的权利仍归原权利人所有，具体来源见 `references/source-manifest.json`。
