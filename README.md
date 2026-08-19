@@ -17,14 +17,30 @@
 
 需要安装 Codex Desktop 或 Codex CLI，并准备 Python 3.9 或更高版本。
 
+#### 方式一：手动安装
+
 在终端进入本仓库目录后执行：
 
 ```bash
 mkdir -p ~/.agents/skills
-cp -R skill/middle-school-english ~/.agents/skills/
+cp -R . ~/.agents/skills/middle-school-english
 ```
 
 安装后重新打开 Codex。
+
+#### 方式二：把仓库链接发给 Codex
+
+也可以在有终端和网络权限的 Codex 会话中直接发送：
+
+```text
+请帮我安装并启用这个 Codex Skill：
+https://github.com/deSkyl1ne/middle-school-english-skill
+
+请将仓库克隆到 ~/.agents/skills/middle-school-english，读取并检查 SKILL.md。
+如果目标目录已经存在，请先告诉我，不要直接覆盖。完成后告诉我如何在新会话中使用它。
+```
+
+Codex 完成安装后，重新打开会话再启用 Skill。仅发送链接不会自动安装；需要明确要求 Codex 执行安装，并允许它使用终端和网络。
 
 ### 2. 启用
 
@@ -69,19 +85,19 @@ cp -R skill/middle-school-english ~/.agents/skills/
 
 ## 项目文件
 
-- `skill/middle-school-english/`：可安装的 Skill 包。
-- `skill/middle-school-english/references/`：教材目录、来源信息和结构化知识数据。
-- `skill/middle-school-english/schema/`：请求、题目和输出格式定义。
-- `skill/middle-school-english/scripts/`：查询、组卷、打印和验证脚本。
+- `references/`：教材目录、来源信息和结构化知识数据。
+- `schema/`：请求、题目和输出格式定义。
+- `scripts/`：查询、组卷、打印和验证脚本。
+- `tests/`：打印、Schema 和内容一致性测试。
 
 ## 开发者验证
 
 下面的命令用于维护仓库，不是教师日常使用的必要步骤：
 
 ```bash
-python3 skill/middle-school-english/scripts/runtime_doctor.py --core
-python3 skill/middle-school-english/scripts/validate_release.py --require-released
-python3 skill/middle-school-english/scripts/query_knowledge.py \
+python3 scripts/runtime_doctor.py --core
+python3 scripts/validate_release.py --require-released
+python3 scripts/query_knowledge.py \
   --book grade-07-semester-2 \
   --unit unit-01 \
   --domain grammar
@@ -92,8 +108,8 @@ python3 skill/middle-school-english/scripts/query_knowledge.py \
 如需验证打印流程：
 
 ```bash
-python3 skill/middle-school-english/scripts/run_print.py \
-  --request skill/middle-school-english/tests/fixtures/print-positive/render-request.json \
+python3 scripts/run_print.py \
+  --request tests/fixtures/print-positive/render-request.json \
   --bundle-out tmp/print-bundle \
   --runtime-root .runtime/print
 ```
@@ -102,4 +118,4 @@ python3 skill/middle-school-english/scripts/run_print.py \
 
 ## 许可证与权利
 
-代码、脚本、验证逻辑和工作流配置遵循 `LICENSE`；知识数据、命题规则和项目文档遵循 `DATA_LICENSE.md`。教材及其他第三方资料的权利仍归原权利人所有，具体来源见 `skill/middle-school-english/references/source-manifest.json`。
+代码、脚本、验证逻辑和工作流配置遵循 `LICENSE`；知识数据、命题规则和项目文档遵循 `DATA_LICENSE.md`。教材及其他第三方资料的权利仍归原权利人所有，具体来源见 `references/source-manifest.json`。
