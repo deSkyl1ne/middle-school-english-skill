@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0.0",
+  "id": "print-matching-5x7-standard",
+  "kind": "positive",
+  "runner": "render_pdf_and_preflight_pdf",
+  "expected_status": "PRINT_PREFLIGHT_PASS",
+  "source_fixture": "print-positive",
+  "variant": "matching-5x7-standard"
+}

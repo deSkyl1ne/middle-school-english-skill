@@ -1,0 +1,4 @@
+interface:
+  display_name: "Middle School English"
+  short_description: "Build validated junior-high practice and printable PDFs"
+  default_prompt: "Use $middle-school-english in Codex and use run_print for any PDF pipeline."

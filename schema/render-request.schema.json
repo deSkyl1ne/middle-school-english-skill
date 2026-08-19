@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "middle-school-english/render-request.schema.json",
+  "title": "Print Render Request",
+  "description": "Bundle-scoped request for the print pipeline. Input paths are resolved relative to the render-request.json directory.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "assessment_path",
+    "validation_report_path",
+    "base_profile_path",
+    "asset_manifest_path",
+    "outputs",
+    "page",
+    "locale",
+    "illustration_mode"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "assessment_path": {"type": "string", "minLength": 1},
+    "validation_report_path": {"type": "string", "minLength": 1},
+    "base_profile_path": {"type": "string", "minLength": 1},
+    "asset_manifest_path": {"type": "string", "minLength": 1},
+    "outputs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": ["student_pdf", "teacher_pdf", "answer_sheet"]
+      }
+    },
+    "page": {"$ref": "#/$defs/page"},
+    "locale": {"type": "string", "pattern": "^[a-z]{2}(-[A-Z]{2})?$", "minLength": 2},
+    "illustration_mode": {
+      "type": "string",
+      "enum": ["none", "original-grayscale"]
+    },
+    "overrides": {"$ref": "#/$defs/overrideObject"},
+    "section_overrides": {
+      "type": "object",
+      "additionalProperties": {"$ref": "#/$defs/overrideObject"}
+    }
+  },
+  "$defs": {
+    "page": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["size", "orientation"],
+      "properties": {
+        "size": {"type": "string", "const": "A4"},
+        "orientation": {"type": "string", "const": "portrait"}
+      }
+    },
+    "primitiveValue": {"type": ["string", "number", "boolean"]},
+    "overrideObject": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "page": {
+          "type": "object", "additionalProperties": false,
+          "properties": {"safe_padding_pt": {"type": "number", "minimum": 8}}
+        },
+        "typography": {
+          "type": "object", "additionalProperties": false,
+          "properties": {
+            "body_min_font_size_pt": {"type": "number", "minimum": 10.5},
+            "annotation_min_font_size_pt": {"type": "number", "minimum": 8.5},
+            "reading_matching_min_font_size_pt": {"type": "number", "minimum": 10.5},
+            "min_leading_multiplier": {"type": "number", "minimum": 1.0},
+            "box_text_min_font_size_pt": {"type": "number", "minimum": 10.5}
+          }
+        },
+        "hard_gates": {
+          "type": "object", "additionalProperties": false,
+          "properties": {
+            "max_non_response_empty_ratio": {"type": "number", "maximum": 0.15},
+            "max_hole_width_ratio": {"type": "number", "maximum": 0.25},
+            "max_hole_height_ratio": {"type": "number", "maximum": 0.25},
+            "min_stimulus_dpi": {"type": "number", "minimum": 300},
+            "min_photo_dpi": {"type": "number", "minimum": 240},
+            "box_center_tolerance_pt": {"type": "number", "minimum": 2}
+          }
+        },
+        "response_areas": {
+          "type": "object", "additionalProperties": false,
+          "properties": {
+            "min_height_mm": {"type": "number", "minimum": 1},
+            "writing_space_line_count_ceiling": {"type": "integer", "minimum": 1}
+          }
+        },
+        "layout": {
+          "type": "object", "additionalProperties": false,
+          "properties": {
+            "tie_break_order": {
+              "type": "array", "minItems": 3, "maxItems": 3, "uniqueItems": true,
+              "items": {"type": "string", "enum": ["card-grid", "stacked", "dual-independent-flow"]}
+            }
+          }
+        }
+      }
+    }
+  }
+}

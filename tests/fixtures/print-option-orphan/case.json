@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "id": "print-option-orphan",
+  "kind": "adversarial",
+  "runner": "preflight_pdf",
+  "expected_status": "PRINT_PREFLIGHT_FAIL",
+  "source_fixture": "print-font-fallback-valid",
+  "operation": "option-orphan",
+  "expected_error_codes": ["CONTENT_ORDER_MISMATCH"]
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "middle-school-english/source-manifest.schema.json",
+  "title": "Middle School English Logical Source Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "sources"],
+  "properties": {
+    "schema_version": {"type": "string", "const": "1.0.0"},
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+          "required": ["source_id", "kind", "title", "edition", "availability", "rights"],
+        "properties": {
+          "source_id": {"type": "string", "minLength": 1},
+          "kind": {"type": "string", "enum": ["official_textbook", "authorized_assessment_sample"]},
+          "title": {"type": "string", "minLength": 1},
+          "edition": {"type": "string", "minLength": 1},
+          "edition_evidence": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["authority", "url", "content_match_status", "printing_metadata_status"],
+            "properties": {
+              "authority": {"type": "string", "const": "人民教育出版社官网数字配套资源"},
+              "url": {"type": "string", "format": "uri"},
+              "content_match_status": {"type": "string", "const": "verified_by_unit_titles_and_structure"},
+              "printing_metadata_status": {"type": "string", "const": "not_recorded_in_public_manifest"}
+            }
+          },
+          "availability": {"type": "string", "enum": ["external_local_archive"]},
+          "rights": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["access_basis", "source_files_in_repo", "public_license_scope", "underlying_rights"],
+            "properties": {
+              "access_basis": {"type": "string", "enum": ["publicly_downloadable_source", "lawfully_purchased_by_project_owner"]},
+              "source_files_in_repo": {"type": "boolean", "const": false},
+              "public_license_scope": {"type": "string", "const": "project_owner_controlled_contributions_only"},
+              "underlying_rights": {"type": "string", "const": "third_party_rights_retained"}
+            }
+          }
+        }
+      },
+      "minItems": 1
+    }
+  }
+}

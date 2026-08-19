@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "middle-school-english/render-ir.schema.json",
+  "title": "Render IR",
+  "description": "Canonical render intermediate representation (PRD FR-4/FR-10/FR-14). Student and teacher views derive from the same canonical item tree; every block carries a stable block_id, a source_item_id and semantic geometry so preflight can verify the machine source in the final PDF.",
+  "type": "object",
+  "additionalProperties": false,
+    "required": ["schema_version", "assessment_id", "blueprint_id", "view", "items"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "assessment_id": {"type": "string", "minLength": 1},
+    "blueprint_id": {"type": ["string", "null"]},
+    "view": {"type": "string", "enum": ["student", "teacher"]},
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/irItem"}
+    }
+  },
+  "$defs": {
+    "irItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["item_id", "item_type", "score", "blocks"],
+      "properties": {
+        "item_id": {"type": "string", "minLength": 1},
+        "item_type": {"type": "string", "minLength": 1},
+        "score": {"type": "number", "exclusiveMinimum": 0},
+        "item_index": {"type": "integer", "minimum": 1},
+        "answer": {},
+        "rationale": {"type": "string"},
+        "canonical_item_ids": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "blocks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/block"}
+        }
+      }
+    },
+    "blockRole": {
+      "type": "string",
+      "enum": [
+        "heading",
+        "instruction",
+        "content",
+        "passage",
+        "stem",
+        "prompt",
+        "option",
+        "task",
+        "response_area",
+        "word_bank",
+        "box",
+        "asset",
+        "footer",
+        "declared_page_reserve"
+      ]
+    },
+    "block": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["block_id", "role", "kind"],
+      "properties": {
+        "block_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$"},
+        "role": {"$ref": "#/$defs/blockRole"},
+        "kind": {
+          "type": "string",
+          "enum": ["text", "Paragraph", "ResponseArea", "MatchingGrid", "WordBankBox", "AssetBlock", "ImageBox", "Box"]
+        },
+        "source_item_id": {"type": "string", "minLength": 1},
+        "source_task_id": {"type": "string", "minLength": 1},
+        "source_prompt_id": {"type": "string", "minLength": 1},
+        "text": {"type": "string"},
+        "font_size_pt": {"type": "number", "exclusiveMinimum": 0},
+        "alignment": {
+          "type": "string",
+          "enum": ["left", "center", "right", "justified"]
+        },
+        "response": {"$ref": "#/$defs/responseArea"},
+        "asset": {"$ref": "#/$defs/assetRef"},
+        "box": {"$ref": "#/$defs/box"},
+        "grid": {"$ref": "#/$defs/matchingGrid"}
+      }
+    },
+    "responseArea": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["response_id", "source_item_id", "answer_contract", "line_policy"],
+      "properties": {
+        "kind": {"type": "string", "const": "ResponseArea"},
+        "response_id": {"type": "string", "minLength": 1},
+        "source_item_id": {"type": "string", "minLength": 1},
+        "source_task_id": {"type": "string", "minLength": 1},
+        "source_prompt_id": {"type": "string", "minLength": 1},
+        "answer_contract": {"$ref": "#/$defs/answerContract"},
+        "line_policy": {
+          "type": "string",
+          "enum": ["none", "inline", "one-line", "multi-line"]
+        },
+        "line_count": {"type": "integer", "minimum": 0},
+        "min_height_mm": {"type": "number", "minimum": 0}
+      }
+    },
+    "answerContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["response_kind", "score"],
+      "properties": {
+        "response_kind": {
+          "type": "string",
+          "enum": ["choice", "letter", "word", "phrase", "sentence", "paragraph"]
+        },
+        "expected_max_chars": {"type": "integer", "minimum": 0},
+        "expected_words": {"type": "integer", "minimum": 0},
+        "score": {"type": "number", "exclusiveMinimum": 0},
+        "line_policy": {"type": "string", "enum": ["none", "inline", "one-line", "multi-line"]},
+        "line_count": {"type": "integer", "minimum": 0},
+        "min_height_mm": {"type": "number", "minimum": 0}
+      }
+    },
+    "assetRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "asset_id"],
+      "properties": {
+        "kind": {"type": "string", "const": "AssetBlock"},
+        "asset_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+        "semantic_role": {
+          "type": "string",
+          "enum": ["stimulus", "required_context", "decorative"]
+        },
+        "placement": {
+          "type": "string",
+          "enum": ["before_passage", "after_passage", "before_stem", "after_stem", "inline_block"]
+        },
+        "after_block_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._-]*$"
+        },
+        "required_for_answer": {"type": "boolean"},
+        "caption": {"type": "string"}
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": ["placement"],
+            "properties": {"placement": {"const": "inline_block"}}
+          },
+          "then": {"required": ["after_block_id"]}
+        }
+      ]
+    },
+    "box": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["component_id", "component_role", "alignment"],
+      "properties": {
+        "component_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+        "component_role": {
+          "type": "string",
+          "enum": ["word_bank", "diagram_node", "info_card", "matching_card", "image_caption"]
+        },
+        "alignment": {
+          "type": "string",
+          "enum": ["center", "left", "right"]
+        },
+        "padding_pt": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["top", "right", "bottom", "left"],
+          "properties": {
+            "top": {"type": "number", "minimum": 0},
+            "right": {"type": "number", "minimum": 0},
+            "bottom": {"type": "number", "minimum": 0},
+            "left": {"type": "number", "minimum": 0}
+          }
+        }
+      }
+    },
+    "matchingGrid": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "prompt_ids", "option_ids"],
+      "properties": {
+        "kind": {"type": "string", "const": "MatchingGrid"},
+        "layout": {
+          "type": "string",
+          "enum": ["card-grid", "stacked", "dual-independent-flow"]
+        },
+        "prompt_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "option_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

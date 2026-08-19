@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "generic-cn-junior-english-v1",
+  "description": "Generic A4 portrait junior-high English print profile.",
+  "locale": "zh-CN",
+  "page": {"size": "A4", "orientation": "portrait", "margins_pt": {"top": 56.7, "right": 62.4, "bottom": 20, "left": 62.4}, "safe_padding_pt": 10},
+  "typography": {"body_min_font_size_pt": 10.5, "annotation_min_font_size_pt": 8.5, "reading_matching_min_font_size_pt": 10.5, "english_body_weight": "regular", "min_leading_multiplier": 1.2, "box_text_min_font_size_pt": 10.5},
+  "hard_gates": {"max_non_response_empty_ratio": 0.15, "max_hole_width_ratio": 0.25, "max_hole_height_ratio": 0.25, "min_stimulus_dpi": 300, "min_photo_dpi": 240, "box_center_tolerance_pt": 2, "orphan_hard_error": true},
+  "fonts": {"tokens": [{"token": "body", "requested_family": "Arial Unicode MS", "fallback_families": ["Arial", "Hiragino Sans GB", "Apple SD Gothic Neo", "WenQuanYi Micro Hei", "Noto Sans CJK SC", "DejaVu Sans"], "weights": ["regular"], "embedded": true}]},
+  "layout": {"reading_matching_candidates": ["card-grid", "stacked", "dual-independent-flow"], "keep_with_next": true, "continue_headers_on_overflow": true, "tie_break_order": ["card-grid", "stacked", "dual-independent-flow"]},
+  "response_areas": {"default_line_policy": "none", "min_height_mm": 8, "writing_space_line_count_ceiling": 20},
+  "illustrations": {"embed_required": true, "min_contrast_ratio": 1.4, "allow_placeholder_fallback": false},
+  "font_resolution": {"enumerate_all_ttc_faces": true, "require_embedded": true, "unknown_fallback_is_error": true, "content_required": true},
+  "box_geometry": {"default_alignment": "center", "min_padding_pt": 8, "center_delta_tolerance_pt": 2, "padding_symmetry_tolerance_pt": 2, "min_font_size_pt": 10.5}
+}

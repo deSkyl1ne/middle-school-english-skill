@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0.0",
+  "common_optional_fields": ["difficulty", "context_item_ids", "validation"],
+  "item_types": [
+    {
+      "item_type": "listening_blueprint",
+      "rule_file": "listening_blueprint.md",
+      "answer_mode": "script_only",
+      "audio_generated": false,
+      "required_fields": ["item_id", "item_type", "script_outline", "speaker_roles", "task_sequence", "target_skills", "score", "canonical_item_ids"]
+    },
+    {
+      "item_type": "single_choice",
+      "rule_file": "single_choice.md",
+      "answer_mode": "one_option",
+      "required_fields": ["item_id", "item_type", "stem", "options", "answer", "rationale", "score", "canonical_item_ids"]
+    },
+    {
+      "item_type": "cloze",
+      "rule_file": "cloze.md",
+      "answer_mode": "one_option_per_blank",
+      "required_fields": ["item_id", "item_type", "passage", "blanks", "options", "answer", "rationale", "score", "canonical_item_ids"]
+    },
+    {
+      "item_type": "reading_multiple_choice",
+      "rule_file": "reading_multiple_choice.md",
+      "answer_mode": "one_option_per_question",
+      "required_fields": ["item_id", "item_type", "passage", "stem", "options", "answer", "rationale", "score", "canonical_item_ids"]
+    },
+    {
+      "item_type": "reading_matching",
+      "rule_file": "reading_matching.md",
+      "answer_mode": "one_match_per_prompt",
+      "required_fields": ["item_id", "item_type", "passage", "prompts", "options", "answer", "rationale", "score", "canonical_item_ids"]
+    },
+    {
+      "item_type": "task_based_reading",
+      "rule_file": "task_based_reading.md",
+      "answer_mode": "structured_response",
+      "required_fields": ["item_id", "item_type", "passage", "tasks", "answer", "rationale", "score", "canonical_item_ids"]
+    },
+    {
+      "item_type": "vocabulary_in_context",
+      "rule_file": "vocabulary_in_context.md",
+      "answer_mode": "one_option_or_word",
+      "required_fields": ["item_id", "item_type", "context", "stem", "options", "answer", "rationale", "score", "canonical_item_ids"]
+    },
+    {
+      "item_type": "grammar_fill",
+      "rule_file": "grammar_fill.md",
+      "answer_mode": "word_or_phrase",
+      "required_fields": ["item_id", "item_type", "stem", "answer", "rationale", "score", "canonical_item_ids"]
+    },
+    {
+      "item_type": "sentence_completion",
+      "rule_file": "sentence_completion.md",
+      "answer_mode": "free_response",
+      "required_fields": ["item_id", "item_type", "stem", "answer", "rationale", "score", "canonical_item_ids"]
+    },
+    {
+      "item_type": "word_bank_fill",
+      "rule_file": "word_bank_fill.md",
+      "answer_mode": "one_word_per_blank",
+      "required_fields": ["item_id", "item_type", "stem", "blanks", "word_bank", "answer", "rationale", "score", "canonical_item_ids"]
+    },
+    {
+      "item_type": "practical_writing",
+      "rule_file": "practical_writing.md",
+      "answer_mode": "rubric_scored",
+      "required_fields": ["item_id", "item_type", "prompt", "rubric", "answer", "rationale", "score", "canonical_item_ids"]
+    }
+  ]
+}

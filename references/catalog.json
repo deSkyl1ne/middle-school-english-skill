@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_version": "1.0.0",
+  "status": "released",
+  "supported_books": [
+    {
+      "book_id": "grade-07-semester-1",
+      "title": "七年级上册",
+      "data_file": "grade-07-semester-1.json",
+      "unit_ids": ["starter-01", "starter-02", "starter-03", "unit-01", "unit-02", "unit-03", "unit-04", "unit-05", "unit-06", "unit-07"],
+      "status": "released"
+    },
+    {
+      "book_id": "grade-07-semester-2",
+      "title": "七年级下册",
+      "data_file": "grade-07-semester-2.json",
+      "unit_ids": ["unit-01", "unit-02", "unit-03", "unit-04", "unit-05", "unit-06", "unit-07", "unit-08"],
+      "status": "released"
+    },
+    {
+      "book_id": "grade-08-semester-1",
+      "title": "八年级上册",
+      "data_file": "grade-08-semester-1.json",
+      "unit_ids": ["unit-01", "unit-02", "unit-03", "unit-04", "unit-05", "unit-06", "unit-07", "unit-08"],
+      "status": "released"
+    },
+    {
+      "book_id": "grade-08-semester-2",
+      "title": "八年级下册",
+      "data_file": "grade-08-semester-2.json",
+      "unit_ids": ["unit-01", "unit-02", "unit-03", "unit-04", "unit-05", "unit-06", "unit-07", "unit-08"],
+      "status": "released"
+    }
+  ],
+  "candidate_books": []
+}

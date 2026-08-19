@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "middle-school-english/assessment-validation.schema.json",
+  "title": "Assessment Validation Report",
+  "description": "Machine-readable result of the Luna 8 assessment validation gates.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "validator_version",
+    "status",
+    "assessment_id",
+    "book_id",
+    "errors",
+    "warnings",
+    "summary"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "validator_version": {"type": "string", "minLength": 1},
+    "status": {
+      "type": "string",
+      "enum": ["ASSESSMENT_VALIDATOR_PASS", "ASSESSMENT_VALIDATOR_FAIL"]
+    },
+    "assessment_id": {"type": ["string", "null"]},
+    "book_id": {"type": ["string", "null"]},
+    "errors": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/issue"}
+    },
+    "warnings": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/issue"}
+    },
+    "summary": {"$ref": "#/$defs/summary"}
+  },
+  "$defs": {
+    "issue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "message"],
+      "properties": {
+        "code": {"type": "string", "minLength": 1},
+        "message": {"type": "string", "minLength": 1},
+        "path": {"type": "string", "minLength": 1},
+        "item_id": {"type": "string", "minLength": 1},
+        "details": {}
+      }
+    },
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "request",
+        "scope",
+        "blueprint",
+        "canonical_references",
+        "level_permissions",
+        "answer_uniqueness",
+        "score_arithmetic",
+        "duplicates",
+        "student_teacher_consistency"
+      ],
+      "properties": {
+        "request": {"type": "boolean"},
+        "scope": {"type": "boolean"},
+        "blueprint": {"type": "boolean"},
+        "canonical_references": {"type": "boolean"},
+        "level_permissions": {"type": "boolean"},
+        "answer_uniqueness": {"type": "boolean"},
+        "score_arithmetic": {"type": "boolean"},
+        "duplicates": {"type": "boolean"},
+        "student_teacher_consistency": {"type": "boolean"}
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "assessment_id",
+        "book_id",
+        "resolved_unit_ids",
+        "item_count",
+        "canonical_reference_count",
+        "primary_canonical_item_count",
+        "expected_score",
+        "computed_score",
+        "output_files_checked",
+        "checks"
+      ],
+      "properties": {
+        "assessment_id": {"type": ["string", "null"]},
+        "book_id": {"type": ["string", "null"]},
+        "resolved_unit_ids": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "item_count": {"type": "integer", "minimum": 0},
+        "canonical_reference_count": {"type": "integer", "minimum": 0},
+        "primary_canonical_item_count": {"type": "integer", "minimum": 0},
+        "expected_score": {"type": ["number", "null"]},
+        "computed_score": {"type": ["number", "null"]},
+        "output_files_checked": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "checks": {"$ref": "#/$defs/checks"}
+      }
+    }
+  }
+}

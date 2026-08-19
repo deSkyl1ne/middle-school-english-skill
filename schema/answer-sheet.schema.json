@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "middle-school-english/answer-sheet.schema.json",
+  "title": "Answer Sheet",
+  "description": "Machine-readable answer sheet (PRD FR-4/FR-5). It lists every assessment item exactly once, in assessment order, with typed answer and score, and binds to the source assessment and blueprint by ID.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "assessment_id", "blueprint_id", "items"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "assessment_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$"},
+    "blueprint_id": {"type": ["string", "null"], "minLength": 1},
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/answerSheetRow"}
+    }
+  },
+  "$defs": {
+    "answerSheetRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["item_number", "item_id", "score", "response_type"],
+      "properties": {
+        "item_number": {"type": "integer", "minimum": 1},
+        "item_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$"},
+        "score": {"type": "number", "exclusiveMinimum": 0},
+        "response_type": {"type": "string", "pattern": "^[a-z][a-z0-9_/-]*$"},
+        "answer": {"$ref": "#/$defs/typedAnswer"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"response_type": {"const": "listening_blueprint"}}},
+          "then": {"properties": {"answer": {"type": "null"}}},
+          "else": {
+            "required": ["answer"],
+            "properties": {"answer": {"not": {"type": "null"}}}
+          }
+        }
+      ]
+    },
+    "typedAnswer": {
+      "description": "Typed answer matching the machine source. A listening blueprint uses null; all other rows carry a non-empty scalar, array, or object.",
+      "oneOf": [
+        {"type": "null"},
+        {"type": "string", "minLength": 1},
+        {"type": "number"},
+        {"type": "boolean"},
+        {"type": "array", "minItems": 1},
+        {"type": "object", "minProperties": 1}
+      ]
+    }
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0.0",
+  "sources": [
+    {
+      "source_id": "grade-07-semester-1-textbook",
+      "kind": "official_textbook",
+      "title": "人教版七年级上册英语教材",
+      "edition": "人教版初中英语新教材内容版本（官方数字配套资源匹配）",
+      "edition_evidence": {
+        "authority": "人民教育出版社官网数字配套资源",
+        "url": "https://www.pep.com.cn/zslth/yyptypzj/czyy/7s/",
+        "content_match_status": "verified_by_unit_titles_and_structure",
+        "printing_metadata_status": "not_recorded_in_public_manifest"
+      },
+      "availability": "external_local_archive",
+      "rights": {
+        "access_basis": "publicly_downloadable_source",
+        "source_files_in_repo": false,
+        "public_license_scope": "project_owner_controlled_contributions_only",
+        "underlying_rights": "third_party_rights_retained"
+      }
+    },
+    {
+      "source_id": "grade-07-semester-1-assessment-profiles",
+      "kind": "authorized_assessment_sample",
+      "title": "七年级上册 assessment scope profiles (scope only)",
+      "edition": "local profile; structure not promoted",
+      "availability": "external_local_archive",
+      "rights": {
+        "access_basis": "lawfully_purchased_by_project_owner",
+        "source_files_in_repo": false,
+        "public_license_scope": "project_owner_controlled_contributions_only",
+        "underlying_rights": "third_party_rights_retained"
+      }
+    },
+    {
+      "source_id": "grade-07-semester-2-textbook",
+      "kind": "official_textbook",
+      "title": "人教版七年级下册英语教材",
+      "edition": "人教版初中英语新教材内容版本（官方数字配套资源匹配）",
+      "edition_evidence": {
+        "authority": "人民教育出版社官网数字配套资源",
+        "url": "https://www.pep.com.cn/zslth/yyptypzj/czyy/7x/",
+        "content_match_status": "verified_by_unit_titles_and_structure",
+        "printing_metadata_status": "not_recorded_in_public_manifest"
+      },
+      "availability": "external_local_archive",
+      "rights": {
+        "access_basis": "publicly_downloadable_source",
+        "source_files_in_repo": false,
+        "public_license_scope": "project_owner_controlled_contributions_only",
+        "underlying_rights": "third_party_rights_retained"
+      }
+    },
+    {
+      "source_id": "grade-07-semester-2-assessment-profiles",
+      "kind": "authorized_assessment_sample",
+      "title": "七年级下册 assessment scope profiles (scope only)",
+      "edition": "local profile; structure not promoted",
+      "availability": "external_local_archive",
+      "rights": {
+        "access_basis": "lawfully_purchased_by_project_owner",
+        "source_files_in_repo": false,
+        "public_license_scope": "project_owner_controlled_contributions_only",
+        "underlying_rights": "third_party_rights_retained"
+      }
+    },
+    {
+      "source_id": "grade-08-semester-1-textbook",
+      "kind": "official_textbook",
+      "title": "人教版八年级上册英语教材",
+      "edition": "人教版初中英语新教材内容版本（官方数字配套资源匹配）",
+      "edition_evidence": {
+        "authority": "人民教育出版社官网数字配套资源",
+        "url": "https://www.pep.com.cn/zslth/yyptzy/czyy/8s/",
+        "content_match_status": "verified_by_unit_titles_and_structure",
+        "printing_metadata_status": "not_recorded_in_public_manifest"
+      },
+      "availability": "external_local_archive",
+      "rights": {
+        "access_basis": "publicly_downloadable_source",
+        "source_files_in_repo": false,
+        "public_license_scope": "project_owner_controlled_contributions_only",
+        "underlying_rights": "third_party_rights_retained"
+      }
+    },
+    {
+      "source_id": "grade-08-semester-1-assessment-profiles",
+      "kind": "authorized_assessment_sample",
+      "title": "八年级上册 assessment scope profiles (scope only)",
+      "edition": "local profile; structure not promoted",
+      "availability": "external_local_archive",
+      "rights": {
+        "access_basis": "lawfully_purchased_by_project_owner",
+        "source_files_in_repo": false,
+        "public_license_scope": "project_owner_controlled_contributions_only",
+        "underlying_rights": "third_party_rights_retained"
+      }
+    },
+    {
+      "source_id": "grade-08-semester-2-textbook",
+      "kind": "official_textbook",
+      "title": "人教版八年级下册英语教材",
+      "edition": "人教版初中英语新教材内容版本（官方数字配套资源匹配）",
+      "edition_evidence": {
+        "authority": "人民教育出版社官网数字配套资源",
+        "url": "https://www.pep.com.cn/zslth/yyptzy/czyy/8x/",
+        "content_match_status": "verified_by_unit_titles_and_structure",
+        "printing_metadata_status": "not_recorded_in_public_manifest"
+      },
+      "availability": "external_local_archive",
+      "rights": {
+        "access_basis": "publicly_downloadable_source",
+        "source_files_in_repo": false,
+        "public_license_scope": "project_owner_controlled_contributions_only",
+        "underlying_rights": "third_party_rights_retained"
+      }
+    },
+    {
+      "source_id": "grade-08-semester-2-assessment-profiles",
+      "kind": "authorized_assessment_sample",
+      "title": "八年级下册 assessment scope profiles (scope only)",
+      "edition": "local profile; structure not promoted",
+      "availability": "external_local_archive",
+      "rights": {
+        "access_basis": "lawfully_purchased_by_project_owner",
+        "source_files_in_repo": false,
+        "public_license_scope": "project_owner_controlled_contributions_only",
+        "underlying_rights": "third_party_rights_retained"
+      }
+    }
+  ]
+}

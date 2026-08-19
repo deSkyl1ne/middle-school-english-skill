@@ -1,0 +1,384 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "middle-school-english/render-manifest.schema.json",
+  "title": "Render Manifest",
+  "description": "Render manifest for the generated bundle. It records input and output paths, resolved fonts, asset placement, semantic block geometry, response contracts and matching layout diagnostics.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "status",
+    "assessment_id",
+    "blueprint_id",
+    "inputs",
+    "outputs",
+    "profiles",
+    "fonts",
+    "blocks",
+    "assets",
+    "response_areas",
+    "matching",
+    "pages",
+    "tool_versions",
+    "deterministic_build"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "status": {"type": "string", "enum": ["RENDERED"]},
+    "assessment_id": {"type": "string", "minLength": 1},
+    "blueprint_id": {"type": ["string", "null"]},
+    "inputs": {"$ref": "#/$defs/inputRecords"},
+    "outputs": {"$ref": "#/$defs/outputRecords"},
+    "profiles": {"$ref": "#/$defs/profileRecords"},
+    "fonts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/fontRecord"}
+    },
+    "blocks": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/semanticBlock"}
+    },
+    "assets": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/assetRecord"}
+    },
+    "response_areas": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/responseAreaRecord"}
+    },
+    "matching": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/matchingDiagnostic"}
+    },
+    "pages": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/pageRecord"}
+    },
+    "tool_versions": {"$ref": "#/$defs/toolVersions"},
+    "deterministic_build": {"type": "boolean", "const": true}
+  },
+  "$defs": {
+    "inputRecords": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "request",
+        "assessment",
+        "validation_report",
+        "base_profile",
+        "resolved_profile",
+        "asset_manifest"
+      ],
+      "properties": {
+        "request": {"$ref": "#/$defs/pathRecord"},
+        "assessment": {"$ref": "#/$defs/pathRecord"},
+        "validation_report": {"$ref": "#/$defs/pathRecord"},
+        "base_profile": {"$ref": "#/$defs/pathRecord"},
+        "resolved_profile": {"$ref": "#/$defs/pathRecord"},
+        "asset_manifest": {"$ref": "#/$defs/pathRecord"},
+        "profile_overrides": {"$ref": "#/$defs/pathRecord"},
+        "profile_section_overrides": {"$ref": "#/$defs/pathRecord"}
+      }
+    },
+    "outputRecords": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["student_ir", "teacher_ir", "student_pdf", "teacher_pdf", "answer_sheet"],
+      "properties": {
+        "student_ir": {"$ref": "#/$defs/pathRecord"},
+        "teacher_ir": {"$ref": "#/$defs/pathRecord"},
+        "student_pdf": {"$ref": "#/$defs/pathRecord"},
+        "teacher_pdf": {"$ref": "#/$defs/pathRecord"},
+        "answer_sheet": {"$ref": "#/$defs/pathRecord"}
+      }
+    },
+    "profileRecords": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["base", "resolved"],
+      "properties": {
+        "base": {"$ref": "#/$defs/pathRecord"},
+        "resolved": {"$ref": "#/$defs/pathRecord"}
+      }
+    },
+    "pathRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1}
+      }
+    },
+    "fontRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "token",
+        "requested_family",
+        "resolved_family",
+        "postscript_name",
+        "resolved_file",
+        "subfont_index",
+        "weight",
+        "embedded",
+        "fallback_used"
+      ],
+      "properties": {
+        "token": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+        "requested_family": {"type": "string", "minLength": 1},
+        "resolved_family": {"type": "string", "minLength": 1},
+        "postscript_name": {"type": "string", "minLength": 1},
+        "resolved_file": {"type": "string", "minLength": 1},
+        "subfont_index": {"type": "integer", "minimum": 0},
+        "weight": {"type": "string", "minLength": 1},
+        "embedded": {"type": "boolean", "const": true},
+        "fallback_used": {"type": "boolean"},
+        "fallback_families": {"type": "array", "items": {"type": "string", "minLength": 1}}
+        ,"runtime_font_name": {"type": "string", "minLength": 1}
+        ,"coverage": {"type": "object", "additionalProperties": false, "required": ["required_count", "covered_count", "ratio"], "properties": {"required_count": {"type": "integer", "minimum": 0}, "covered_count": {"type": "integer", "minimum": 0}, "ratio": {"type": "number", "minimum": 0, "maximum": 1}}}
+      }
+    },
+    "semanticBlock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "block_id",
+        "role",
+        "source_item_id",
+        "page",
+        "bbox_pt",
+        "layout_region"
+      ],
+      "properties": {
+        "document": {"type": "string", "enum": ["student", "teacher"]},
+        "block_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$"},
+        "role": {
+          "type": "string",
+          "enum": [
+        "content",
+        "heading",
+        "instruction",
+        "passage",
+        "stem",
+        "option",
+            "prompt",
+            "task",
+            "response_area",
+            "asset",
+            "box",
+            "word_bank",
+            "footer",
+            "declared_page_reserve"
+          ]
+        },
+        "source_item_id": {"type": "string", "minLength": 1},
+        "source_task_id": {"type": "string", "minLength": 1},
+        "source_prompt_id": {"type": "string", "minLength": 1},
+        "layout_column": {"type": "string", "enum": ["left", "right", "full"]},
+        "page": {"type": "integer", "minimum": 1},
+        "bbox_pt": {"$ref": "#/$defs/bbox"},
+        "layout_region": {"type": "string", "minLength": 1},
+        "asset_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+        "box": {"$ref": "#/$defs/boxGeometry"}
+      }
+    },
+    "boxGeometry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["box_bbox_pt", "content_bbox_pt", "horizontal_center_delta_pt", "vertical_center_delta_pt", "padding_pt", "font_size_pt", "alignment"],
+      "properties": {
+        "box_bbox_pt": {"$ref": "#/$defs/bbox"},
+        "content_bbox_pt": {"$ref": "#/$defs/bbox"},
+        "horizontal_center_delta_pt": {"type": "number", "minimum": 0},
+        "vertical_center_delta_pt": {"type": "number", "minimum": 0},
+        "padding_pt": {"$ref": "#/$defs/padding"},
+        "font_size_pt": {"type": "number", "minimum": 10.5},
+        "alignment": {"type": "string", "enum": ["center", "left"]}
+      }
+    },
+    "padding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["top", "right", "bottom", "left"],
+      "properties": {
+        "top": {"type": "number", "minimum": 0}, "right": {"type": "number", "minimum": 0},
+        "bottom": {"type": "number", "minimum": 0}, "left": {"type": "number", "minimum": 0}
+      }
+    },
+    "bbox": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {"type": "number"}
+    },
+    "assetRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "asset_id",
+        "file",
+        "pdf_xref",
+        "page",
+        "placement_bbox_pt",
+        "display_size_mm",
+        "measured_dpi",
+        "semantic_role",
+        "linked_item_ids",
+        "rights_status",
+        "pixel_width",
+        "pixel_height",
+        "color_mode",
+        "contrast_ratio",
+        "cropped"
+      ],
+      "properties": {
+        "asset_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+        "file": {"type": "string", "minLength": 1},
+        "pdf_xref": {"type": "integer", "minimum": 0},
+        "pdf_xrefs": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "student": {"type": "integer", "minimum": 0},
+            "teacher": {"type": "integer", "minimum": 0}
+          }
+        },
+        "page": {"type": "integer", "minimum": 1},
+        "placement_bbox_pt": {"$ref": "#/$defs/bbox"},
+        "display_size_mm": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number", "exclusiveMinimum": 0}},
+        "measured_dpi": {"type": "number", "exclusiveMinimum": 0},
+        "semantic_role": {
+          "type": "string",
+          "enum": ["stimulus", "required_context", "decorative"]
+        },
+        "linked_item_ids": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        },
+        "rights_status": {"type": "string", "enum": ["granted", "cc_public_domain", "school_license"]},
+        "pixel_width": {"type": "integer", "minimum": 1},
+        "pixel_height": {"type": "integer", "minimum": 1},
+        "color_mode": {"type": "string", "enum": ["1", "L", "LA", "RGB", "RGBA", "CMYK"]},
+        "contrast_ratio": {"type": "number", "minimum": 1.0},
+        "cropped": {"type": "boolean", "const": false}
+      }
+    },
+    "responseAreaRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "response_id",
+        "source_item_id",
+        "response_contract",
+        "actual_line_count",
+        "page",
+        "bbox_pt"
+      ],
+      "properties": {
+        "document": {"type": "string", "enum": ["student", "teacher"]},
+        "response_id": {"type": "string", "minLength": 1},
+        "source_item_id": {"type": "string", "minLength": 1},
+        "source_task_id": {"type": "string", "minLength": 1},
+        "source_prompt_id": {"type": "string", "minLength": 1},
+        "response_contract": {"$ref": "#/$defs/answerContract"},
+        "actual_line_count": {"type": "integer", "minimum": 0},
+        "page": {"type": "integer", "minimum": 1},
+        "bbox_pt": {"$ref": "#/$defs/bbox"}
+      }
+    },
+    "answerContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["response_kind", "line_policy", "score"],
+      "properties": {
+        "response_kind": {
+          "type": "string",
+          "enum": ["choice", "letter", "word", "phrase", "sentence", "paragraph"]
+        },
+        "line_policy": {
+          "type": "string",
+          "enum": ["none", "inline", "one-line", "multi-line"]
+        },
+        "line_count": {"type": "integer", "minimum": 0},
+        "expected_max_chars": {"type": "integer", "minimum": 0},
+        "expected_words": {"type": "integer", "minimum": 0},
+        "score": {"type": "number", "exclusiveMinimum": 0}
+      }
+    },
+    "matchingDiagnostic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["item_id", "candidates", "selected_layout", "selection_reason"],
+      "properties": {
+        "document": {"type": "string", "enum": ["student", "teacher"]},
+        "item_id": {"type": "string", "minLength": 1},
+        "candidates": {
+          "type": "array",
+          "minItems": 3,
+          "items": {"$ref": "#/$defs/matchingCandidate"}
+        },
+        "selected_layout": {
+          "type": "string",
+          "enum": ["card-grid", "stacked", "dual-independent-flow"]
+        },
+        "selection_reason": {"type": "string", "minLength": 1}
+      }
+    },
+    "matchingCandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "layout",
+        "page_count",
+        "break_count",
+        "hard_violation_count",
+        "max_non_response_empty_ratio",
+        "column_imbalance_ratio",
+        "isolated_item_count"
+      ],
+      "properties": {
+        "layout": {
+          "type": "string",
+          "enum": ["card-grid", "stacked", "dual-independent-flow"]
+        },
+        "page_count": {"type": "integer", "minimum": 1},
+        "break_count": {"type": "integer", "minimum": 0},
+        "hard_violation_count": {"type": "integer", "minimum": 0},
+        "max_non_response_empty_ratio": {"type": "number", "minimum": 0},
+        "column_imbalance_ratio": {"type": "number", "minimum": 0, "maximum": 1},
+        "isolated_item_count": {"type": "integer", "minimum": 0},
+        "breaks": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "pageRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["document", "page", "width_pt", "height_pt"],
+      "properties": {
+        "document": {
+          "type": "string",
+          "enum": ["student", "teacher"]
+        },
+        "page": {"type": "integer", "minimum": 1},
+        "width_pt": {"type": "number", "exclusiveMinimum": 0},
+        "height_pt": {"type": "number", "exclusiveMinimum": 0}
+      }
+    },
+    "toolVersions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["python", "reportlab", "pymupdf", "pillow", "jsonschema"],
+      "properties": {
+        "python": {"type": "string", "minLength": 1},
+        "reportlab": {"type": "string", "minLength": 1},
+        "pymupdf": {"type": "string", "minLength": 1},
+        "pillow": {"type": "string", "minLength": 1},
+        "jsonschema": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

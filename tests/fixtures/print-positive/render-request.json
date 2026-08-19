@@ -1,0 +1,18 @@
+{
+  "assessment_path": "assessment.json",
+  "asset_manifest_path": "asset-manifest.json",
+  "base_profile_path": "generic-cn-compact-v1.json",
+  "illustration_mode": "none",
+  "locale": "zh-CN",
+  "outputs": [
+    "student_pdf",
+    "teacher_pdf",
+    "answer_sheet"
+  ],
+  "page": {
+    "orientation": "portrait",
+    "size": "A4"
+  },
+  "schema_version": "1.0.0",
+  "validation_report_path": "content-validation-report.json"
+}

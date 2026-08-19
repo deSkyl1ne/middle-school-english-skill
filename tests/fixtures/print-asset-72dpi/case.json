@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "id": "print-asset-72dpi",
+  "kind": "adversarial",
+  "runner": "preflight_pdf",
+  "expected_status": "PRINT_PREFLIGHT_FAIL",
+  "source_fixture": "print-asset-valid-grayscale",
+  "operation": "asset-72dpi",
+  "expected_error_codes": ["GRAPHICS_LOW_DPI"]
+}

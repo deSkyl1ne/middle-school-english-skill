@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "middle-school-english/assessment-request.schema.json",
+  "title": "Middle School English Assessment Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["book_id", "purpose", "item_type_plan", "outputs"],
+  "properties": {
+    "book_id": {
+      "type": "string",
+      "pattern": "^grade-0[789]-semester-[12]$",
+      "description": "A schema-valid book; publication status is resolved through catalog.json."
+    },
+    "unit_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/unitId"}
+    },
+    "assessment_scope": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A named scope resolved against the selected book, such as a confirmed midterm boundary."
+    },
+    "purpose": {"type": "string", "minLength": 1},
+    "duration_minutes": {"type": "integer", "minimum": 1},
+    "total_score": {"type": "number", "exclusiveMinimum": 0},
+    "difficulty_target": {
+      "type": "string",
+      "enum": ["easy", "medium", "hard", "mixed"]
+    },
+    "reinforcement": {"type": "boolean", "default": false},
+    "item_type_plan": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/itemTypePlanLine"}
+    },
+    "outputs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": ["student", "teacher", "answer_sheet"]
+      }
+    }
+  },
+  "oneOf": [
+    {"required": ["unit_ids"]},
+    {"required": ["assessment_scope"]}
+  ],
+  "$defs": {
+    "unitId": {
+      "type": "string",
+      "pattern": "^(starter|unit)-[0-9]{2}$"
+    },
+    "itemType": {
+      "type": "string",
+      "enum": [
+        "listening_blueprint",
+        "single_choice",
+        "cloze",
+        "reading_multiple_choice",
+        "reading_matching",
+        "task_based_reading",
+        "vocabulary_in_context",
+        "grammar_fill",
+        "sentence_completion",
+        "word_bank_fill",
+        "practical_writing"
+      ]
+    },
+    "itemTypePlanLine": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["item_type", "item_count", "score_each"],
+      "properties": {
+        "item_type": {"$ref": "#/$defs/itemType"},
+        "item_count": {"type": "integer", "minimum": 1},
+        "score_each": {"type": "number", "exclusiveMinimum": 0}
+      }
+    }
+  }
+}

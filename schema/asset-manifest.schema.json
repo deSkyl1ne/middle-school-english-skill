@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "middle-school-english/asset-manifest.schema.json",
+  "title": "Asset Manifest",
+  "description": "Registered image assets used by the render bundle. Assessment/IR never contain file paths, DPI or rights; those come only from this manifest, which must be present even when illustration_mode is none.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "assets"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "assets": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/assetEntry"}
+    }
+  },
+  "$defs": {
+    "assetEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "asset_id",
+        "file",
+        "semantic_role",
+        "required_for_answer",
+        "rights_status",
+        "linked_item_ids"
+      ],
+      "properties": {
+        "asset_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+        "file": {"type": "string", "minLength": 1},
+        "semantic_role": {
+          "type": "string",
+          "enum": ["stimulus", "required_context", "decorative"]
+        },
+        "required_for_answer": {"type": "boolean"},
+        "caption": {
+          "type": "string",
+          "description": "Short caption; must not contain the answer (PRD FR-16)."
+        },
+        "rights_status": {
+          "type": "string",
+          "enum": ["granted", "cc_public_domain", "school_license"]
+        },
+        "pixel_width": {"type": "integer", "minimum": 1},
+        "pixel_height": {"type": "integer", "minimum": 1},
+        "color_mode": {"type": "string", "enum": ["1", "L", "LA", "RGB", "RGBA", "CMYK"]},
+        "measured_dpi": {"type": "number", "exclusiveMinimum": 0},
+        "contrast_ratio": {"type": "number", "minimum": 1.0},
+        "cropped": {"type": "boolean", "const": false},
+        "placement_bbox_pt": {
+          "type": "array", "minItems": 4, "maxItems": 4,
+          "items": {"type": "number"}
+        },
+        "linked_item_ids": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "assessment_id": "fixture-double-answer",
+  "request": {
+    "book_id": "grade-07-semester-2",
+    "unit_ids": ["unit-01"],
+    "purpose": "unit_practice",
+    "total_score": 2,
+    "item_type_plan": [{"item_type": "single_choice", "item_count": 1, "score_each": 2}],
+    "outputs": ["student"]
+  },
+  "blueprint": {
+    "blueprint_id": "fixture-blueprint-double",
+    "resolved_unit_ids": ["unit-01"],
+    "sections": [{"item_type": "single_choice", "item_count": 1, "score_each": 2, "score_total": 2}],
+    "coverage_targets": [{"canonical_item_id": "g7s2-unit-01-topic-001", "target_role": "primary", "planned_item_count": 1}],
+    "score_check": {"expected_total": 2, "computed_total": 2}
+  },
+  "items": [{
+    "item_id": "fixture-double-item-001",
+    "item_type": "single_choice",
+    "stem": "Which question asks about an animal's importance?",
+    "options": [
+      {"option_id": "A", "text": "Why are animals important?"},
+      {"option_id": "B", "text": "Where is your school?"}
+    ],
+    "answer": {"option_ids": ["A", "B"]},
+    "rationale": "The fixture intentionally declares two answers.",
+    "score": 2,
+    "canonical_item_ids": ["g7s2-unit-01-topic-001"]
+  }]
+}

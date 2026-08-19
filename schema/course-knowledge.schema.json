@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "middle-school-english/course-knowledge.schema.json",
+  "title": "Middle School English Canonical Course Knowledge",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "dataset_version",
+    "book",
+    "units",
+    "items",
+    "progressions",
+    "cross_unit_links",
+    "assessment_boundaries",
+    "generation_boundaries"
+  ],
+  "properties": {
+    "schema_version": {"type": "string", "const": "1.0.0"},
+    "dataset_version": {"type": "string", "minLength": 1},
+    "book": {"$ref": "#/$defs/book"},
+    "units": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/unit"},
+      "minItems": 1
+    },
+    "items": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/item"}
+    },
+    "progressions": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/relation"}
+    },
+    "cross_unit_links": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/relation"}
+    },
+    "assessment_boundaries": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/assessmentBoundary"}
+    },
+    "generation_boundaries": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/generationBoundary"}
+    }
+  },
+  "$defs": {
+    "book": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["book_id", "grade", "semester", "publisher", "title"],
+      "properties": {
+        "book_id": {"type": "string", "pattern": "^grade-0[789]-semester-[12]$"},
+        "grade": {"type": "integer", "enum": [7, 8, 9]},
+        "semester": {"type": "integer", "enum": [1, 2]},
+        "publisher": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1}
+      }
+    },
+    "unit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unit_id", "unit_number", "title", "source_page_ranges"],
+      "properties": {
+        "unit_id": {"type": "string", "pattern": "^(starter|unit)-[0-9]{2}$"},
+        "unit_number": {"type": "integer", "minimum": 1, "maximum": 99},
+        "title": {"type": "string", "minLength": 1},
+        "source_page_ranges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["source_id", "pages"],
+            "properties": {
+              "source_id": {"type": "string", "minLength": 1},
+              "pages": {"$ref": "#/$defs/pages"}
+            }
+          }
+        }
+      }
+    },
+    "item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "unit_id", "domain", "label", "level", "evidence"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+        "unit_id": {"type": "string", "pattern": "^(starter|unit)-[0-9]{2}$"},
+        "domain": {"type": "string", "enum": ["topic", "function", "vocabulary", "phrase", "grammar", "pronunciation", "text_type", "skill", "project", "error_pattern", "generation_boundary"]},
+        "label": {"type": "string", "minLength": 1},
+        "description": {"type": "string"},
+        "level": {"type": "string", "enum": ["A", "B", "C", "D"]},
+        "tags": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "evidence": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/evidence"},
+          "minItems": 1
+        },
+        "official_mapping": {"$ref": "#/$defs/officialMapping"}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "kind", "pages"],
+      "properties": {
+        "source_id": {"type": "string", "minLength": 1},
+        "kind": {"type": "string", "enum": ["textbook_body", "official_vocabulary_appendix", "official_grammar_appendix", "official_pronunciation_appendix", "authorized_teaching_support", "authorized_assessment_sample"]},
+        "pages": {"$ref": "#/$defs/pages"}
+      }
+    },
+    "pages": {
+      "type": "array",
+      "items": {"type": "integer", "minimum": 0},
+      "uniqueItems": true
+    },
+    "officialMapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "topic_ids"],
+      "properties": {
+        "status": {"type": "string", "enum": ["mapped", "not_mapped", "not_applicable"]},
+        "topic_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "reason_code": {"type": "string"}
+      }
+    },
+    "relation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "from_book_id", "from_unit_id", "to_book_id", "to_unit_id", "relation", "level", "item_ids"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+        "from_book_id": {"type": "string"},
+        "from_unit_id": {"type": "string", "pattern": "^(starter|unit)-[0-9]{2}$"},
+        "to_book_id": {"type": "string"},
+        "to_unit_id": {"type": "string", "pattern": "^(starter|unit)-[0-9]{2}$"},
+        "relation": {"type": "string", "minLength": 1},
+        "level": {"type": "string", "enum": ["A", "B", "C", "D"]},
+        "item_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true}
+      }
+    },
+    "assessmentBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assessment_type", "covered_unit_ids", "scope_status", "evidence"],
+      "properties": {
+        "assessment_type": {"type": "string", "minLength": 1},
+        "covered_unit_ids": {"type": "array", "items": {"type": "string", "pattern": "^(starter|unit)-[0-9]{2}$"}, "uniqueItems": true},
+        "scope_status": {"type": "string", "enum": ["confirmed", "profile_only", "not_applicable"]},
+        "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}, "minItems": 1}
+      }
+    },
+    "generationBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "unit_id", "allow_levels", "reinforcement_levels", "context_only_levels", "notes"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "unit_id": {"type": "string", "pattern": "^(starter|unit)-[0-9]{2}$"},
+        "allow_levels": {"type": "array", "items": {"type": "string", "enum": ["A", "B", "C", "D"]}, "uniqueItems": true},
+        "reinforcement_levels": {"type": "array", "items": {"type": "string", "enum": ["A", "B", "C", "D"]}, "uniqueItems": true},
+        "context_only_levels": {"type": "array", "items": {"type": "string", "enum": ["A", "B", "C", "D"]}, "uniqueItems": true},
+        "notes": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

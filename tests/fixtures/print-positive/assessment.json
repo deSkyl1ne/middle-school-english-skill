@@ -1,0 +1,1753 @@
+{
+  "schema_version": "1.0.0",
+  "assessment_id": "fixture-valid-unit-01",
+  "request": {
+    "book_id": "grade-07-semester-2",
+    "unit_ids": [
+      "unit-01"
+    ],
+    "purpose": "unit_practice",
+    "total_score": 78,
+    "reinforcement": false,
+    "item_type_plan": [
+      {
+        "item_type": "single_choice",
+        "item_count": 39,
+        "score_each": 2
+      }
+    ],
+    "outputs": [
+      "student",
+      "teacher",
+      "answer_sheet"
+    ]
+  },
+  "blueprint": {
+    "blueprint_id": "fixture-blueprint-valid",
+    "request": {
+      "book_id": "grade-07-semester-2",
+      "unit_ids": [
+        "unit-01"
+      ],
+      "purpose": "unit_practice",
+      "total_score": 78,
+      "reinforcement": false,
+      "item_type_plan": [
+        {
+          "item_type": "single_choice",
+          "item_count": 39,
+          "score_each": 2
+        }
+      ],
+      "outputs": [
+        "student",
+        "teacher",
+        "answer_sheet"
+      ]
+    },
+    "resolved_unit_ids": [
+      "unit-01"
+    ],
+    "sections": [
+      {
+        "item_type": "single_choice",
+        "item_count": 39,
+        "score_each": 2,
+        "score_total": 78
+      }
+    ],
+    "coverage_targets": [
+      {
+        "canonical_item_id": "g7s2-unit-01-topic-001",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-topic-002",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-topic-003",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-topic-004",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-grammar-001",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-grammar-002",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-grammar-003",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-001",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-002",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-003",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-004",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-005",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-006",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-007",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-008",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-009",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-010",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-011",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-012",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-013",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-014",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-015",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-016",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-017",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-018",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-019",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-020",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-021",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-022",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-023",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-024",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-025",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-026",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-027",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-028",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-029",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-030",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-031",
+        "target_role": "primary",
+        "planned_item_count": 1
+      },
+      {
+        "canonical_item_id": "g7s2-unit-01-vocabulary-032",
+        "target_role": "primary",
+        "planned_item_count": 1
+      }
+    ],
+    "score_check": {
+      "expected_total": 78,
+      "computed_total": 78
+    },
+    "boundary_check": {
+      "allowed_primary_levels": [
+        "A",
+        "B"
+      ],
+      "reinforcement": false,
+      "context_only_level": "D"
+    }
+  },
+  "items": [
+    {
+      "item_id": "fixture-valid-item-001",
+      "item_type": "single_choice",
+      "stem": "Question 1: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 1."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 1."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 1."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 1."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "A"
+        ]
+      },
+      "rationale": "Choice A is the keyed response for the learning point tested by exercise 1.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-topic-001"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-002",
+      "item_type": "single_choice",
+      "stem": "Question 2: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 2."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 2."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 2."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 2."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "B"
+        ]
+      },
+      "rationale": "Choice B is the keyed response for the learning point tested by exercise 2.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-topic-002"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-003",
+      "item_type": "single_choice",
+      "stem": "Question 3: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 3."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 3."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 3."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 3."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "C"
+        ]
+      },
+      "rationale": "Choice C is the keyed response for the learning point tested by exercise 3.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-topic-003"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-004",
+      "item_type": "single_choice",
+      "stem": "Question 4: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 4."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 4."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 4."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 4."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "D"
+        ]
+      },
+      "rationale": "Choice D is the keyed response for the learning point tested by exercise 4.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-topic-004"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-005",
+      "item_type": "single_choice",
+      "stem": "Question 5: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 5."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 5."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 5."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 5."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "A"
+        ]
+      },
+      "rationale": "Choice A is the keyed response for the learning point tested by exercise 5.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-grammar-001"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-006",
+      "item_type": "single_choice",
+      "stem": "Question 6: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 6."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 6."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 6."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 6."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "B"
+        ]
+      },
+      "rationale": "Choice B is the keyed response for the learning point tested by exercise 6.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-grammar-002"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-007",
+      "item_type": "single_choice",
+      "stem": "Question 7: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 7."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 7."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 7."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 7."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "C"
+        ]
+      },
+      "rationale": "Choice C is the keyed response for the learning point tested by exercise 7.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-grammar-003"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-008",
+      "item_type": "single_choice",
+      "stem": "Question 8: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 8."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 8."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 8."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 8."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "D"
+        ]
+      },
+      "rationale": "Choice D is the keyed response for the learning point tested by exercise 8.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-001"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-009",
+      "item_type": "single_choice",
+      "stem": "Question 9: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 9."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 9."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 9."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 9."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "A"
+        ]
+      },
+      "rationale": "Choice A is the keyed response for the learning point tested by exercise 9.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-002"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-010",
+      "item_type": "single_choice",
+      "stem": "Question 10: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 10."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 10."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 10."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 10."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "B"
+        ]
+      },
+      "rationale": "Choice B is the keyed response for the learning point tested by exercise 10.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-003"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-011",
+      "item_type": "single_choice",
+      "stem": "Question 11: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 11."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 11."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 11."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 11."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "C"
+        ]
+      },
+      "rationale": "Choice C is the keyed response for the learning point tested by exercise 11.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-004"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-012",
+      "item_type": "single_choice",
+      "stem": "Question 12: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 12."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 12."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 12."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 12."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "D"
+        ]
+      },
+      "rationale": "Choice D is the keyed response for the learning point tested by exercise 12.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-005"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-013",
+      "item_type": "single_choice",
+      "stem": "Question 13: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 13."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 13."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 13."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 13."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "A"
+        ]
+      },
+      "rationale": "Choice A is the keyed response for the learning point tested by exercise 13.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-006"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-014",
+      "item_type": "single_choice",
+      "stem": "Question 14: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 14."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 14."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 14."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 14."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "B"
+        ]
+      },
+      "rationale": "Choice B is the keyed response for the learning point tested by exercise 14.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-007"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-015",
+      "item_type": "single_choice",
+      "stem": "Question 15: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 15."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 15."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 15."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 15."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "C"
+        ]
+      },
+      "rationale": "Choice C is the keyed response for the learning point tested by exercise 15.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-008"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-016",
+      "item_type": "single_choice",
+      "stem": "Question 16: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 16."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 16."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 16."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 16."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "D"
+        ]
+      },
+      "rationale": "Choice D is the keyed response for the learning point tested by exercise 16.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-009"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-017",
+      "item_type": "single_choice",
+      "stem": "Question 17: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 17."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 17."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 17."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 17."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "A"
+        ]
+      },
+      "rationale": "Choice A is the keyed response for the learning point tested by exercise 17.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-010"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-018",
+      "item_type": "single_choice",
+      "stem": "Question 18: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 18."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 18."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 18."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 18."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "B"
+        ]
+      },
+      "rationale": "Choice B is the keyed response for the learning point tested by exercise 18.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-011"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-019",
+      "item_type": "single_choice",
+      "stem": "Question 19: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 19."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 19."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 19."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 19."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "C"
+        ]
+      },
+      "rationale": "Choice C is the keyed response for the learning point tested by exercise 19.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-012"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-020",
+      "item_type": "single_choice",
+      "stem": "Question 20: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 20."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 20."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 20."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 20."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "D"
+        ]
+      },
+      "rationale": "Choice D is the keyed response for the learning point tested by exercise 20.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-013"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-021",
+      "item_type": "single_choice",
+      "stem": "Question 21: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 21."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 21."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 21."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 21."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "A"
+        ]
+      },
+      "rationale": "Choice A is the keyed response for the learning point tested by exercise 21.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-014"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-022",
+      "item_type": "single_choice",
+      "stem": "Question 22: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 22."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 22."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 22."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 22."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "B"
+        ]
+      },
+      "rationale": "Choice B is the keyed response for the learning point tested by exercise 22.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-015"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-023",
+      "item_type": "single_choice",
+      "stem": "Question 23: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 23."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 23."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 23."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 23."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "C"
+        ]
+      },
+      "rationale": "Choice C is the keyed response for the learning point tested by exercise 23.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-016"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-024",
+      "item_type": "single_choice",
+      "stem": "Question 24: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 24."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 24."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 24."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 24."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "D"
+        ]
+      },
+      "rationale": "Choice D is the keyed response for the learning point tested by exercise 24.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-017"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-025",
+      "item_type": "single_choice",
+      "stem": "Question 25: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 25."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 25."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 25."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 25."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "A"
+        ]
+      },
+      "rationale": "Choice A is the keyed response for the learning point tested by exercise 25.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-018"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-026",
+      "item_type": "single_choice",
+      "stem": "Question 26: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 26."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 26."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 26."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 26."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "B"
+        ]
+      },
+      "rationale": "Choice B is the keyed response for the learning point tested by exercise 26.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-019"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-027",
+      "item_type": "single_choice",
+      "stem": "Question 27: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 27."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 27."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 27."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 27."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "C"
+        ]
+      },
+      "rationale": "Choice C is the keyed response for the learning point tested by exercise 27.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-020"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-028",
+      "item_type": "single_choice",
+      "stem": "Question 28: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 28."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 28."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 28."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 28."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "D"
+        ]
+      },
+      "rationale": "Choice D is the keyed response for the learning point tested by exercise 28.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-021"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-029",
+      "item_type": "single_choice",
+      "stem": "Question 29: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 29."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 29."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 29."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 29."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "A"
+        ]
+      },
+      "rationale": "Choice A is the keyed response for the learning point tested by exercise 29.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-022"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-030",
+      "item_type": "single_choice",
+      "stem": "Question 30: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 30."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 30."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 30."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 30."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "B"
+        ]
+      },
+      "rationale": "Choice B is the keyed response for the learning point tested by exercise 30.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-023"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-031",
+      "item_type": "single_choice",
+      "stem": "Question 31: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 31."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 31."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 31."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 31."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "C"
+        ]
+      },
+      "rationale": "Choice C is the keyed response for the learning point tested by exercise 31.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-024"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-032",
+      "item_type": "single_choice",
+      "stem": "Question 32: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 32."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 32."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 32."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 32."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "D"
+        ]
+      },
+      "rationale": "Choice D is the keyed response for the learning point tested by exercise 32.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-025"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-033",
+      "item_type": "single_choice",
+      "stem": "Question 33: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 33."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 33."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 33."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 33."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "A"
+        ]
+      },
+      "rationale": "Choice A is the keyed response for the learning point tested by exercise 33.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-026"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-034",
+      "item_type": "single_choice",
+      "stem": "Question 34: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 34."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 34."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 34."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 34."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "B"
+        ]
+      },
+      "rationale": "Choice B is the keyed response for the learning point tested by exercise 34.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-027"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-035",
+      "item_type": "single_choice",
+      "stem": "Question 35: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 35."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 35."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 35."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 35."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "C"
+        ]
+      },
+      "rationale": "Choice C is the keyed response for the learning point tested by exercise 35.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-028"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-036",
+      "item_type": "single_choice",
+      "stem": "Question 36: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 36."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 36."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 36."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 36."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "D"
+        ]
+      },
+      "rationale": "Choice D is the keyed response for the learning point tested by exercise 36.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-029"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-037",
+      "item_type": "single_choice",
+      "stem": "Question 37: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 37."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 37."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 37."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 37."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "A"
+        ]
+      },
+      "rationale": "Choice A is the keyed response for the learning point tested by exercise 37.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-030"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-038",
+      "item_type": "single_choice",
+      "stem": "Question 38: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 38."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 38."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 38."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 38."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "B"
+        ]
+      },
+      "rationale": "Choice B is the keyed response for the learning point tested by exercise 38.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-031"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    },
+    {
+      "item_id": "fixture-valid-item-039",
+      "item_type": "single_choice",
+      "stem": "Question 39: Which sentence best describes the English learning point in this exercise?",
+      "options": [
+        {
+          "option_id": "A",
+          "text": "The first choice gives the correct meaning for exercise 39."
+        },
+        {
+          "option_id": "B",
+          "text": "The second choice changes the meaning of exercise 39."
+        },
+        {
+          "option_id": "C",
+          "text": "The third choice does not answer exercise 39."
+        },
+        {
+          "option_id": "D",
+          "text": "The fourth choice uses an unrelated idea in exercise 39."
+        }
+      ],
+      "answer": {
+        "option_ids": [
+          "C"
+        ]
+      },
+      "rationale": "Choice C is the keyed response for the learning point tested by exercise 39.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": [
+        "g7s2-unit-01-vocabulary-032"
+      ],
+      "context_item_ids": [],
+      "validation": {
+        "answer_unique": true
+      }
+    }
+  ]
+}

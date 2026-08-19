@@ -1,0 +1,70 @@
+{
+  "assessment_id": "fixture-valid-unit-01",
+  "request": {
+    "book_id": "grade-07-semester-2",
+    "unit_ids": ["unit-01"],
+    "purpose": "unit_practice",
+    "total_score": 4,
+    "reinforcement": false,
+    "item_type_plan": [{"item_type": "single_choice", "item_count": 2, "score_each": 2}],
+    "outputs": ["student", "teacher", "answer_sheet"]
+  },
+  "blueprint": {
+    "blueprint_id": "fixture-blueprint-valid",
+    "request": {
+      "book_id": "grade-07-semester-2",
+      "unit_ids": ["unit-01"],
+      "purpose": "unit_practice",
+      "total_score": 4,
+      "reinforcement": false,
+      "item_type_plan": [{"item_type": "single_choice", "item_count": 2, "score_each": 2}],
+      "outputs": ["student", "teacher", "answer_sheet"]
+    },
+    "resolved_unit_ids": ["unit-01"],
+    "sections": [{"item_type": "single_choice", "item_count": 2, "score_each": 2, "score_total": 4}],
+    "coverage_targets": [
+      {"canonical_item_id": "g7s2-unit-01-topic-001", "target_role": "primary", "planned_item_count": 1},
+      {"canonical_item_id": "g7s2-unit-01-grammar-001", "target_role": "primary", "planned_item_count": 1}
+    ],
+    "score_check": {"expected_total": 4, "computed_total": 4},
+    "boundary_check": {"allowed_primary_levels": ["A", "B"], "reinforcement": false, "context_only_level": "D"}
+  },
+  "items": [
+    {
+      "item_id": "fixture-valid-item-001",
+      "item_type": "single_choice",
+      "stem": "Which question asks about an animal's importance?",
+      "options": [
+        {"option_id": "A", "text": "Why are animals important?"},
+        {"option_id": "B", "text": "Where is your school?"},
+        {"option_id": "C", "text": "What time is it?"},
+        {"option_id": "D", "text": "How old is your brother?"}
+      ],
+      "answer": {"option_ids": ["A"]},
+      "rationale": "The first option directly asks about the importance of animals.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": ["g7s2-unit-01-topic-001"],
+      "context_item_ids": [],
+      "validation": {"answer_unique": true}
+    },
+    {
+      "item_id": "fixture-valid-item-002",
+      "item_type": "single_choice",
+      "stem": "Which sentence uses a question about an animal correctly?",
+      "options": [
+        {"option_id": "A", "text": "Animal are important."},
+        {"option_id": "B", "text": "What does it look like?"},
+        {"option_id": "C", "text": "What it does look like?"},
+        {"option_id": "D", "text": "Does what it look like?"}
+      ],
+      "answer": {"option_ids": ["B"]},
+      "rationale": "The second option has the correct question-word and auxiliary-verb order.",
+      "score": 2,
+      "difficulty": "medium",
+      "canonical_item_ids": ["g7s2-unit-01-grammar-001"],
+      "context_item_ids": [],
+      "validation": {"answer_unique": true}
+    }
+  ]
+}

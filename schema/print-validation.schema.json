@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "middle-school-english/print-validation.schema.json",
+  "title": "Print Validation Report",
+  "description": "Preflight report produced from real PDF parsing and semantic geometry.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "status",
+    "assessment_id",
+    "errors",
+    "warnings",
+    "pdfs",
+    "summary"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "status": {
+      "type": "string",
+      "enum": ["PRINT_PREFLIGHT_PASS", "PRINT_PREFLIGHT_FAIL"]
+    },
+    "assessment_id": {"type": "string", "minLength": 1},
+    "errors": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/issue"}
+    },
+    "warnings": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/issue"}
+    },
+    "pdfs": {
+      "type": "array",
+      "minItems": 2,
+      "items": {"$ref": "#/$defs/pdfRecord"}
+    },
+    "summary": {"$ref": "#/$defs/summary"}
+  },
+  "$defs": {
+    "issue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "message"],
+      "properties": {
+        "code": {"type": "string", "minLength": 1},
+        "message": {"type": "string", "minLength": 1},
+        "path": {"type": "string", "minLength": 1},
+        "page": {"type": "integer", "minimum": 1},
+        "block_id": {"type": "string", "minLength": 1},
+        "item_id": {"type": "string", "minLength": 1},
+        "asset_id": {"type": "string", "minLength": 1},
+        "response_id": {"type": "string", "minLength": 1},
+        "ratio": {"type": "number"},
+        "details": {}
+      }
+    },
+    "pdfRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["document", "path", "page_count", "pages"],
+      "properties": {
+        "document": {
+          "type": "string",
+          "enum": ["student", "teacher"]
+        },
+        "path": {"type": "string", "minLength": 1},
+        "page_count": {"type": "integer", "minimum": 1},
+        "pages": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/pageGeometry"}
+        }
+      }
+    },
+    "pageGeometry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["page", "width_pt", "height_pt"],
+      "properties": {
+        "page": {"type": "integer", "minimum": 1},
+        "width_pt": {"type": "number", "exclusiveMinimum": 0},
+        "height_pt": {"type": "number", "exclusiveMinimum": 0},
+        "empty_ratio": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["errors", "warnings", "pdf_count"],
+      "properties": {
+        "errors": {"type": "integer", "minimum": 0},
+        "warnings": {"type": "integer", "minimum": 0},
+        "pdf_count": {"type": "integer", "minimum": 2}
+      }
+    }
+  }
+}

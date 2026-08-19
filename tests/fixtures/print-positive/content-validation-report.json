@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "validator_version": "1.0.0",
+  "status": "ASSESSMENT_VALIDATOR_PASS",
+  "assessment_id": "fixture-valid-unit-01",
+  "book_id": "grade-07-semester-2",
+  "errors": [],
+  "warnings": [
+    {
+      "code": "OUTPUT_NOT_SUPPLIED",
+      "message": "answer_sheet was requested but no rendered output path was supplied to the validator"
+    },
+    {
+      "code": "OUTPUT_NOT_SUPPLIED",
+      "message": "student was requested but no rendered output path was supplied to the validator"
+    },
+    {
+      "code": "OUTPUT_NOT_SUPPLIED",
+      "message": "teacher was requested but no rendered output path was supplied to the validator"
+    }
+  ],
+  "summary": {
+    "assessment_id": "fixture-valid-unit-01",
+    "book_id": "grade-07-semester-2",
+    "resolved_unit_ids": [
+      "unit-01"
+    ],
+    "item_count": 24,
+    "canonical_reference_count": 24,
+    "primary_canonical_item_count": 24,
+    "expected_score": 48,
+    "computed_score": 48,
+    "output_files_checked": [],
+    "checks": {
+      "request": true,
+      "scope": true,
+      "blueprint": true,
+      "canonical_references": true,
+      "level_permissions": true,
+      "answer_uniqueness": true,
+      "score_arithmetic": true,
+      "duplicates": true,
+      "student_teacher_consistency": true
+    }
+  }
+}

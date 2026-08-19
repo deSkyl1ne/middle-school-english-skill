@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "id": "print-choice-extra-full-line",
+  "kind": "adversarial",
+  "runner": "preflight_pdf",
+  "expected_status": "PRINT_PREFLIGHT_FAIL",
+  "source_fixture": "print-font-fallback-valid",
+  "operation": "choice-extra-full-line",
+  "expected_error_codes": ["RESPONSE_LAYOUT_MISMATCH"]
+}

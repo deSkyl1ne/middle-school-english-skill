@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "id": "print-matching-10pt",
+  "kind": "adversarial",
+  "runner": "preflight_pdf",
+  "expected_status": "PRINT_PREFLIGHT_FAIL",
+  "source_fixture": "print-matching-5x7-standard",
+  "operation": "matching-10pt",
+  "expected_error_codes": ["TYPOGRAPHY_TOO_SMALL"]
+}

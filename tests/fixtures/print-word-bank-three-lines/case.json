@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0.0",
+  "id": "print-word-bank-three-lines",
+  "kind": "positive",
+  "runner": "render_pdf_and_preflight_pdf",
+  "expected_status": "PRINT_PREFLIGHT_PASS",
+  "source_fixture": "print-positive",
+  "variant": "word-bank-3"
+}
