@@ -40,7 +40,7 @@ https://github.com/deSkyl1ne/middle-school-english-skill
 如果目标目录已经存在，请先告诉我，不要直接覆盖。完成后告诉我如何在新会话中使用它。
 ```
 
-Codex 完成安装后，重新打开会话再启用 Skill。仅发送链接不会自动安装；需要明确要求 Codex 执行安装，并允许它使用终端和网络。
+Codex 完成安装后，重新打开会话再启用 Skill。
 
 ### 2. 启用
 
