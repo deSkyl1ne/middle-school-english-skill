@@ -16,6 +16,12 @@ OUTPUT_FILENAMES = {
     "answer_sheet": "answer-sheet.json",
 }
 
+COMPACT_CHOICE_TYPES = {
+    "single_choice": None,
+    "reading_multiple_choice": "passage",
+    "vocabulary_in_context": "context",
+}
+
 
 def load(path: Path) -> dict[str, Any]:
     with path.open(encoding="utf-8") as handle:
@@ -39,6 +45,10 @@ def option_lines(options: Any) -> list[str]:
             option_text = option
         lines.append(f"{option_id}. {option_text}")
     return lines
+
+
+def compact_option_line(options: Any) -> str:
+    return " ".join(option_lines(options))
 
 
 def labeled_text(label: str, value: Any) -> list[str]:
@@ -175,6 +185,13 @@ def vocabulary_lines(item: dict[str, Any]) -> list[str]:
     return labeled_text("Context", item.get("context")) + labeled_text("Question", item.get("stem")) + option_lines(item.get("options"))
 
 
+def compact_choice_lines(item: dict[str, Any]) -> list[str]:
+    context_field = COMPACT_CHOICE_TYPES[str(item.get("item_type"))]
+    context = text_value(item.get(context_field)) if context_field else ""
+    question = " ".join(value for value in (text_value(item.get("stem")), compact_option_line(item.get("options"))) if value)
+    return [line for line in (context, question) if line]
+
+
 def grammar_or_completion_lines(item: dict[str, Any]) -> list[str]:
     return labeled_text("Question", item.get("stem"))
 
@@ -211,7 +228,7 @@ def item_content(item: dict[str, Any], teacher: bool, number: int) -> list[str]:
     lines = [f"### {number}. {item_type} ({item.get('score', '')} point(s))"]
     renderer = STUDENT_RENDERERS.get(item_type)
     if renderer is not None:
-        lines.extend(renderer(item))
+        lines.extend(compact_choice_lines(item) if not teacher and item_type in COMPACT_CHOICE_TYPES else renderer(item))
     if teacher:
         # A listening blueprint has no answer key or rationale by schema contract.
         if "answer" in item:
@@ -221,7 +238,7 @@ def item_content(item: dict[str, Any], teacher: bool, number: int) -> list[str]:
         lines.append("**Canonical items:** " + ", ".join(str(value) for value in item.get("canonical_item_ids", [])))
         if item.get("validation") is not None:
             lines.append("**Validation:** " + json.dumps(item["validation"], ensure_ascii=False, sort_keys=True))
-    else:
+    elif item_type not in COMPACT_CHOICE_TYPES:
         lines.append("Response: ____________________")
     return lines
 

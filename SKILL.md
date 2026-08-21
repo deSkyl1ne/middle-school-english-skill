@@ -45,6 +45,14 @@ Do not jump from a natural-language request to a finished paper.
 
 Listening requests may produce scripts and a blueprint only. Do not claim that an audio file was generated unless the user separately supplies an authorized audio workflow.
 
+## Student output contract
+
+- Treat the student view as a strict whitelist: render only fields required by the resolved blueprint and registered item type. Do not add commentary, layout notes, transition notes, or repeated instructions.
+- Keep each item's stem, real blank or parenthetical area, and its options in one contiguous item block. Keep them on one line when they fit; page-width wrapping is allowed, but authors must not insert manual breaks or continuation labels.
+- Parenthetical content is optional and must carry real meaning. A requested count is a maximum unless the blueprint explicitly requires an exact count. Omit missing content; `()` and whitespace-only parentheses are invalid, and filler parentheses are forbidden.
+- Do not add text such as "continued from above", "see above", "attach to previous line", "fill in each box", or any other text that is not part of the registered item fields.
+- For reading matching, render prompts and one shared option set as separate bounded regions. The option set must use a bordered table or grid, and each option label and content must appear once.
+
 ## Print runtime
 
 Core queries and standard-library validation do not require the print runtime. Printing does: use `scripts/bootstrap_runtime.py` and `scripts/runtime_doctor.py --print` for explicit setup and diagnosis, or let the required `scripts/run_print.py` wrapper perform both before its print pipeline. Do not install the four print packages into the host environment as a prerequisite for core queries.

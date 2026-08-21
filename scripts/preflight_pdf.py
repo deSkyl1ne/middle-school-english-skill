@@ -103,14 +103,15 @@ def bound_snapshot(
 
 def validate_schema(name: str, document: Any, errors: list[dict[str, Any]], *, path: str) -> None:
     try:
-        from jsonschema import Draft202012Validator
+        from validate_json_schema import normalized_errors
         schema = load(ROOT / "schema" / name)
-        found = sorted(Draft202012Validator(schema).iter_errors(document), key=lambda error: list(error.absolute_path))
-        for error in found:
-            errors.append(issue("SCHEMA_INVALID", error.message, path=f"{path}{error.json_path}"))
+        for error in normalized_errors(document, schema):
+            error_path = str(error.get("path", "$"))
+            suffix = "" if error_path == "$" else error_path[1:] if error_path.startswith("$") else f".{error_path}"
+            errors.append(issue("SCHEMA_INVALID", str(error.get("message", "schema validation failed")), path=f"{path}{suffix}"))
     except ImportError:
         errors.append(issue("SCHEMA_RUNTIME_DEPENDENCY", "jsonschema Draft 2020-12 is required", path=name))
-    except (OSError, json.JSONDecodeError) as exc:
+    except (OSError, json.JSONDecodeError, RuntimeError) as exc:
         errors.append(issue("SCHEMA_INVALID", str(exc), path=name))
 
 

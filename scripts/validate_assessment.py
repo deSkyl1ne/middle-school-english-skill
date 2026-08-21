@@ -1763,7 +1763,10 @@ class AssessmentValidator:
         for index, item in enumerate(self.items):
             if index >= len(blocks):
                 return
-            missing = [label for label in required_labels.get(item.get("item_type"), ()) if label not in blocks[index]]
+            labels = required_labels.get(item.get("item_type"), ())
+            if output_name == "student" and item.get("item_type") in {"single_choice", "reading_multiple_choice", "vocabulary_in_context"}:
+                labels = ()
+            missing = [label for label in labels if label not in blocks[index]]
             if missing:
                 self.add_error("OUTPUT_CONSISTENCY_FAIL", f"{output_name} output omits required rendered fields: {missing}", "student_teacher_consistency", str(path), str(item.get("item_id")))
 

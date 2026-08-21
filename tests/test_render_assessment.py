@@ -73,6 +73,20 @@ class RendererTest(unittest.TestCase):
             self.assertNotIn(forbidden, student)
         self.assertNotIn("audio", student.casefold())
 
+    def test_student_choice_blocks_are_compact_and_keep_option_order(self) -> None:
+        student = RENDERER.render(self.assessment(["student"]), teacher=False)
+        for number, item_type, expected in (
+            (2, "single_choice", "Choose. A. One B. Two"),
+            (4, "reading_multiple_choice", "Reading passage.\nChoose. A. One B. Two"),
+            (7, "vocabulary_in_context", "Vocabulary context.\nWhat does it mean? A. Meaning B. Other"),
+        ):
+            start = student.index(f"### {number}. {item_type}")
+            end = student.find("\n### ", start + 1)
+            block = student[start:] if end == -1 else student[start:end]
+            self.assertIn(expected, block)
+            for forbidden in ("**Question**", "**Passage**", "**Context**", "Response:", "continued", "接上行"):
+                self.assertNotIn(forbidden, block)
+
     def test_requested_outputs_are_the_only_files_written(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             source = Path(temp_dir) / "assessment.json"
@@ -87,6 +101,8 @@ class RendererTest(unittest.TestCase):
         sheet = RENDERER.answer_sheet(data)
         self.assertIn("Teacher explanation.", teacher)
         self.assertIn("g7s2-unit-01-topic-001", teacher)
+        self.assertIn("**Answer:**", teacher)
+        self.assertIn("**Rationale:** Teacher explanation.", teacher)
         self.assertNotIn("**Answer:** `null`", teacher)
         self.assertEqual(sheet["items"][1]["answer"], data["items"][1]["answer"])
         self.assertNotIn("answer", sheet["items"][0])

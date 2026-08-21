@@ -22,6 +22,11 @@ QUESTION_PREFIX = re.compile(r"^\s*Question\s+(\d+)\s*[:.)-]\s*", re.IGNORECASE)
 BLANK_LABEL = re.compile(r"\bBlank\s+b\d+\s*:?[ \t]*", re.IGNORECASE)
 BLANK_MARKER = re.compile(r"\[\s*b\d+\s*\]", re.IGNORECASE)
 INTERNAL_ID = re.compile(r"\b[qpb]\d+\b", re.IGNORECASE)
+EMPTY_PARENTHESES = re.compile(r"(?<!\w)[(（]\s*[)）]")
+LAYOUT_NOTE = re.compile(
+    r"(?:[(（]\s*)?(?:continued(?:\s+from\s+above)?|see\s+above|attach\s+to\s+previous\s+line|fill\s+in\s+each\s+box|接上行|续上行|见上文|每格填写)(?:\s*[)）])?",
+    re.IGNORECASE,
+)
 WRITING_SECTION_LABEL = re.compile(r"(?<!\n)(?=(?:思维导图|要求|给定开头)[：:])")
 DEFAULT_WRITING_LINE_COUNT = 6
 
@@ -43,7 +48,10 @@ def student_visible_text(value: Any, *, preserve_question_number: bool = False) 
         remainder = value_text[question.end():]
         value_text = f"{question.group(1)}. {remainder}" if preserve_question_number else remainder
     value_text = INTERNAL_ID.sub("", value_text)
+    value_text = LAYOUT_NOTE.sub("", value_text)
+    value_text = EMPTY_PARENTHESES.sub("", value_text)
     value_text = re.sub(r"[ \t]+([,.;:!?])", r"\1", value_text)
+    value_text = re.sub(r"[ \t]{2,}", " ", value_text)
     return value_text.strip()
 
 

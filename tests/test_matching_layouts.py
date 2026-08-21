@@ -53,6 +53,13 @@ class MatchingLayoutsTest(unittest.TestCase):
         self.assertNotIn("AssetBlock", text)
         self.assertNotIn("![](", text)
 
+    def test_matching_pdf_draws_visible_boundaries(self):
+        temp, bundle = prepare_positive()
+        self.addCleanup(temp.cleanup)
+        with fitz.open(bundle / "student.pdf") as document:
+            drawings = [drawing for page in document for drawing in page.get_drawings() if drawing.get("rect") and drawing["rect"].width > 20 and drawing["rect"].height > 4]
+        self.assertTrue(drawings, "matching PDF must contain visible bordered regions")
+
     def test_student_matching_text_uses_formal_numbers_without_machine_title_or_ids(self):
         with tempfile.TemporaryDirectory(prefix="mse-matching-visible-") as td:
             root = Path(td)

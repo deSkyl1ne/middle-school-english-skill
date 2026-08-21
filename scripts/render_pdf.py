@@ -418,6 +418,16 @@ class MatchingFlowable(Flowable):
         flow._full_frame_height = self._full_frame_height
         return flow
 
+    @staticmethod
+    def _draw_boundary(canvas: Any, x: float, y: float, width: float, height: float) -> None:
+        if width <= 0 or height <= 0:
+            return
+        canvas.saveState()
+        canvas.setStrokeColor(colors.black)
+        canvas.setLineWidth(0.6)
+        canvas.rect(float(x), float(y), float(width), float(height), stroke=1, fill=0)
+        canvas.restoreState()
+
     def split(self, availWidth: float, availHeight: float) -> list[Flowable]:  # noqa: N802
         """Split only between complete matching rows on the real frame.
 
@@ -488,6 +498,7 @@ class MatchingFlowable(Flowable):
         selected = self.diagnostic["selected_layout"]
         if selected == "card-grid":
             half = self.width / 2.0
+            option_rows: list[tuple[float, float, int]] = []
             for row_start in range(0, len(options), 2):
                 row = options[row_start:row_start + 2]
                 row_height = max(self._option_heights[row_start:row_start + 2], default=0.0)
@@ -498,6 +509,10 @@ class MatchingFlowable(Flowable):
                     para.drawOn(canvas, x0, y - h)
                     self._record_semantic("option", str(option.get("option_id", "")), str(option.get("text", "")), [self.x + x0, self.y + y - h, self.x + x0 + half - 8, self.y + y], layout_column="left" if offset == 0 else "right")
                 y -= row_height + 3.5
+                option_rows.append((y + 3.5, row_height, len(row)))
+            for row_bottom, row_height, row_count in option_rows:
+                for offset in range(row_count):
+                    self._draw_boundary(canvas, offset * half, row_bottom, half - 2.0, row_height + 1.0)
             if options and prompts:
                 y -= 3.5
             for index, (prompt, h) in enumerate(zip(prompts, self._prompt_heights), 1):
@@ -506,6 +521,7 @@ class MatchingFlowable(Flowable):
                 para.drawOn(canvas, 0, y - h)
                 self._record_semantic("prompt", str(prompt.get("prompt_id", "")), str(prompt.get("text", "")), [self.x, self.y + y - h, self.x + self.width, self.y + y], layout_column="full")
                 self._record_response(prompt, [self.x, self.y + y - h, self.x + self.width, self.y + y])
+                self._draw_boundary(canvas, 0, y - h - 1.0, self.width, h + 2.0)
                 y -= h + 3.5
         elif selected == "stacked":
             for option in options:
@@ -513,6 +529,7 @@ class MatchingFlowable(Flowable):
                 _, h = para.wrap(self.width, 100000.0)
                 para.drawOn(canvas, 0, y - h)
                 self._record_semantic("option", str(option.get("option_id", "")), str(option.get("text", "")), [self.x, self.y + y - h, self.x + self.width, self.y + y], layout_column="full")
+                self._draw_boundary(canvas, 0, y - h - 1.0, self.width, h + 2.0)
                 y -= h + 3
             y -= 3
             for index, prompt in enumerate(prompts, 1):
@@ -521,6 +538,7 @@ class MatchingFlowable(Flowable):
                 para.drawOn(canvas, 0, y - h)
                 self._record_semantic("prompt", str(prompt.get("prompt_id", "")), str(prompt.get("text", "")), [self.x, self.y + y - h, self.x + self.width, self.y + y], layout_column="full")
                 self._record_response(prompt, [self.x, self.y + y - h, self.x + self.width, self.y + y]); y -= h + 3
+                self._draw_boundary(canvas, 0, y + 2.0, self.width, h + 2.0)
         else:
             half = self.width / 2.0
             left_y, right_y = y, y
@@ -529,13 +547,16 @@ class MatchingFlowable(Flowable):
                 _, h = para.wrap(half - 8, 100000.0)
                 para.drawOn(canvas, 0, left_y - h)
                 self._record_semantic("option", str(option.get("option_id", "")), str(option.get("text", "")), [self.x, self.y + left_y - h, self.x + half - 8, self.y + left_y], layout_column="left")
+                self._draw_boundary(canvas, 0, left_y - h - 1.0, half - 2.0, h + 2.0)
                 left_y -= h + 3
             for index, prompt in enumerate(prompts, 1):
                 para = Paragraph(html.escape(matching_prompt_text(prompt, index, student_view=self.student_view)), style)
                 _, h = para.wrap(half - 8, 100000.0)
                 para.drawOn(canvas, half, right_y - h)
                 self._record_semantic("prompt", str(prompt.get("prompt_id", "")), str(prompt.get("text", "")), [self.x + half, self.y + right_y - h, self.x + self.width - 8, self.y + right_y], layout_column="right")
-                self._record_response(prompt, [self.x + half, self.y + right_y - h, self.x + self.width - 8, self.y + right_y]); right_y -= h + 3
+                self._record_response(prompt, [self.x + half, self.y + right_y - h, self.x + self.width - 8, self.y + right_y])
+                self._draw_boundary(canvas, half, right_y - h - 1.0, half - 2.0, h + 2.0)
+                right_y -= h + 3
         grid_id = f"{self.item.get('item_id')}-matching-grid"
         if self.chunk_index > 1:
             grid_id += f"-{self.chunk_index:03d}"
